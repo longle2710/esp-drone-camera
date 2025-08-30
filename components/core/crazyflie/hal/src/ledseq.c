@@ -52,7 +52,8 @@
 
 /* Led sequences */
 ledseqStep_t seq_lowbat_def[] = {
-  { true, LEDSEQ_WAITMS(1000)},
+  { true, LEDSEQ_WAITMS(100)},
+  { false, LEDSEQ_WAITMS(100)},
   {    0, LEDSEQ_LOOP},
 };
 
@@ -96,14 +97,14 @@ ledseqContext_t seq_calibrated = {
 };
 
 ledseqStep_t seq_alive_def[] = {
-  { true, LEDSEQ_WAITMS(50)},
-  {false, LEDSEQ_WAITMS(1950)},
+  { false, LEDSEQ_WAITMS(50)},
+  {true, LEDSEQ_WAITMS(1950)},
   {    0, LEDSEQ_LOOP},
 };
 
 ledseqContext_t seq_alive = {
   .sequence = seq_alive_def,
-  .led = SYS_LED,
+  .led = CHG_LED,
 };
 
 ledseqStep_t seq_linkup_def[] = {
